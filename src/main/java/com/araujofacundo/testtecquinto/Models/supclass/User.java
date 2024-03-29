@@ -1,5 +1,6 @@
 package com.araujofacundo.testtecquinto.Models.supclass;
 
+import com.araujofacundo.testtecquinto.Models.Role;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,6 +15,9 @@ public class User {
 
     @NonNull
     private String firstName, lastName, email, password;
+
+    @NonNull
+    private Role userRole;
 
     public String getFullName(){
         return this.getFirstName() + " " + this.getLastName();

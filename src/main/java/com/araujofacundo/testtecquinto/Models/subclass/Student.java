@@ -1,6 +1,7 @@
 package com.araujofacundo.testtecquinto.Models.subclass;
 
 
+import com.araujofacundo.testtecquinto.Models.Role;
 import com.araujofacundo.testtecquinto.Models.StudentTeacherCourse;
 import com.araujofacundo.testtecquinto.Models.supclass.User;
 import lombok.*;
@@ -24,8 +25,8 @@ public class Student extends User {
     @OneToMany(mappedBy = "student",fetch = FetchType.LAZY)
     private Set<StudentTeacherCourse> courses = new HashSet<>();
 
-    public Student(@NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password) {
-        super(firstName, lastName, email, password);
+    public Student(@NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password, @NonNull Role userRole) {
+        super(firstName, lastName, email, password, userRole);
     }
 
     public void addCourse(StudentTeacherCourse studentTeacherCourse){

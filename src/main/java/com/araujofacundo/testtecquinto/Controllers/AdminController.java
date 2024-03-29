@@ -1,10 +1,14 @@
 package com.araujofacundo.testtecquinto.Controllers;
 
+import com.araujofacundo.testtecquinto.Models.Role;
 import com.araujofacundo.testtecquinto.Models.subclass.Admin;
+import com.araujofacundo.testtecquinto.Models.supclass.User;
+import com.araujofacundo.testtecquinto.Repositories.UserRepository;
 import com.araujofacundo.testtecquinto.Services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +19,8 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/admins")
     public List<Admin> getAllAdmins(){
@@ -25,6 +31,9 @@ public class AdminController {
     public Admin getAdmin (@PathVariable Long id){
         return adminService.findById(id);
     }
+
+    @GetMapping("/current")
+    public User getCurrentUser (Authentication authentication) throws Exception {return userRepository.findByEmail(authentication.getName());}
 
     @PostMapping("/admins")
     public ResponseEntity<Object> createAdmin(@RequestParam String firstName,@RequestParam String lastName,
@@ -53,7 +62,7 @@ public class AdminController {
             return new ResponseEntity<>("Missing password", HttpStatus.FORBIDDEN);
         }
 
-        Admin admin = new Admin(firstName, lastName, email, password);
+        Admin admin = new Admin(firstName, lastName, email, password, Role.ADMIN);
         adminService.save(admin);
 
         return new ResponseEntity<>(HttpStatus.CREATED);

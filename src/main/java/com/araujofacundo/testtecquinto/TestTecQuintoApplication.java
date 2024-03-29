@@ -1,9 +1,6 @@
 package com.araujofacundo.testtecquinto;
 
-import com.araujofacundo.testtecquinto.Models.Course;
-import com.araujofacundo.testtecquinto.Models.Period;
-import com.araujofacundo.testtecquinto.Models.StudentTeacherCourse;
-import com.araujofacundo.testtecquinto.Models.TeacherCourse;
+import com.araujofacundo.testtecquinto.Models.*;
 import com.araujofacundo.testtecquinto.Models.subclass.Admin;
 import com.araujofacundo.testtecquinto.Models.subclass.Student;
 import com.araujofacundo.testtecquinto.Models.subclass.Teacher;
@@ -28,17 +25,17 @@ public class TestTecQuintoApplication {
 	public CommandLineRunner initData(CourseService courseService, TeacherService teacherService, StudentService studentService, TeacherCourseService teacherCourseService, StudentTeacherCourseService studentTeacherCourseService, AdminService adminService, PasswordEncoder passwordEncoder){
 		return (args -> {
 
-			Teacher teacher1 = new Teacher("Gabriela","Rossi","gabiRossi@teachersFI.com", passwordEncoder.encode("gabi123"));
-			Teacher teacher2 = new Teacher("Facundo", "Araujo","facu@teachersFI.com", passwordEncoder.encode("facu123"));
-			Teacher teacher3 = new Teacher("Jorge", "Lopez","jorge@gmail.com", passwordEncoder.encode("jorge123"));
+			Teacher teacher1 = new Teacher("Gabriela","Rossi","gabiRossi@teachersFI.com", passwordEncoder.encode("gabi123"),Role.TEACHER);
+			Teacher teacher2 = new Teacher("Facundo", "Araujo","facu@teachersFI.com", passwordEncoder.encode("facu123"),Role.TEACHER);
+			Teacher teacher3 = new Teacher("Jorge", "Lopez","jorge@gmail.com", passwordEncoder.encode("jorge123"),Role.TEACHER);
 
-			Student student1 = new Student("Agustin","Araujo","agu@gmail.com", passwordEncoder.encode("agu123"));
-			Student student2 = new Student("Yuli","Rossi","yuli@gmail.com",passwordEncoder.encode("yuli123"));
-			Student student3 = new Student("Juako","Rossi","juako@gmail.com", passwordEncoder.encode("juako123"));
-			Student student4 = new Student("Juan","Lopez","juan@gmail.com", passwordEncoder.encode("juan23"));
-			Student student5 = new Student("Julian","Perez","juli@gmail.com", passwordEncoder.encode("juli123"));
-			Student student6 = new Student("Agustina","Gonzales","agustina@gmail.com", passwordEncoder.encode("agus123"));
-			Student student7 = new Student("Yolanda","Ponce","yolanda@gmail.com", passwordEncoder.encode("yolanda123"));
+			Student student1 = new Student("Agustin","Araujo","agu@gmail.com", passwordEncoder.encode("agu123"),Role.STUDENT);
+			Student student2 = new Student("Yuli","Rossi","yuli@gmail.com",passwordEncoder.encode("yuli123"),Role.STUDENT);
+			Student student3 = new Student("Juako","Rossi","juako@gmail.com", passwordEncoder.encode("juako123"),Role.STUDENT);
+			Student student4 = new Student("Juan","Lopez","juan@gmail.com", passwordEncoder.encode("juan23"),Role.STUDENT);
+			Student student5 = new Student("Julian","Perez","juli@gmail.com", passwordEncoder.encode("juli123"),Role.STUDENT);
+			Student student6 = new Student("Agustina","Gonzales","agustina@gmail.com", passwordEncoder.encode("agus123"),Role.STUDENT);
+			Student student7 = new Student("Yolanda","Ponce","yolanda@gmail.com", passwordEncoder.encode("yolanda123"),Role.STUDENT);
 
 			studentService.save(student1);
 			studentService.save(student2);
@@ -173,8 +170,8 @@ public class TestTecQuintoApplication {
 			studentService.save(student7);
 
 
-			Admin admin = new Admin("Admin","Admin","admin1@fifthimpact.com", passwordEncoder.encode("12345"));
-			Admin admin2 = new Admin("Admin2","Admin2","admin2@gmail.com", passwordEncoder.encode("12345"));
+			Admin admin = new Admin("Admin","Admin","admin1@fifthimpact.com", passwordEncoder.encode("12345"), Role.ADMIN);
+			Admin admin2 = new Admin("Admin2","Admin2","admin2@gmail.com", passwordEncoder.encode("12345"),Role.ADMIN);
 			adminService.save(admin);
 			adminService.save(admin2);
 

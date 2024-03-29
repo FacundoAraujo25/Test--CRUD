@@ -1,5 +1,6 @@
 package com.araujofacundo.testtecquinto.Models.subclass;
 
+import com.araujofacundo.testtecquinto.Models.Role;
 import com.araujofacundo.testtecquinto.Models.supclass.User;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -21,7 +22,8 @@ public class Admin extends User {
     private long id;
     private boolean activeAdmin=true;
 
-    public Admin(@NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password) {
-        super(firstName, lastName, email, password);
+    public Admin(@NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password, @NonNull Role userRole) {
+        super(firstName, lastName, email, password, userRole);
     }
 }
+

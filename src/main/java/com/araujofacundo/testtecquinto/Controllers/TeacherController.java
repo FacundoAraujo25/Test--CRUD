@@ -4,6 +4,7 @@ import com.araujofacundo.testtecquinto.DTO.CourseDTO;
 import com.araujofacundo.testtecquinto.DTO.TeacherDTO;
 import com.araujofacundo.testtecquinto.Models.Course;
 import com.araujofacundo.testtecquinto.Models.Period;
+import com.araujofacundo.testtecquinto.Models.Role;
 import com.araujofacundo.testtecquinto.Models.TeacherCourse;
 import com.araujofacundo.testtecquinto.Models.subclass.Student;
 import com.araujofacundo.testtecquinto.Models.subclass.Teacher;
@@ -66,7 +67,7 @@ public class TeacherController {
             return new ResponseEntity<>("Missing password", HttpStatus.FORBIDDEN);
         }
 
-        Teacher teacher = new Teacher(firstName, lastName, email, password);
+        Teacher teacher = new Teacher(firstName, lastName, email, password, Role.TEACHER);
         teacherService.save(teacher);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
