@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./img/logo_quinto_impacto.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h1>Fifth Impact University</h1>
+        </div>
+        <!--Secciones-del-tablero-->
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="./index.html"><span class="las la-home"></span>
+                        <span>Main Table</span></a>
+                </li>
+                <li>
+                    <a href="./courses.html"><span class="las la-stethoscope"></span>
+                        <span>Courses</span></a>
+                </li>
+                <li>
+                    <a href="./teachers.html"><span class="las la-user"></span>
+                        <span>Teachers</span></a>
+                </li>
+                <li>
+                    <a href="#" class="active"><span class="las la-user-injured"></span>
+                        <span>Students</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <!-- <span class="las la-bars"></span> -->
+                </label> Admins Panel
+            </h2>
+
+            <!-- <div class="search-wrapper">
+                
+                <input type="search" placeholder="Search here" />
+            </div> -->
+            <div class="user-wrapper">
+                <img src="./img/logo_quinto_impacto.ico" width="40px" height="40px" alt="">
+                <div>
+                    <h4>Administrador</h4>
+                    <small>Super Admin</small>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="cards">
+
+                <!-- <div class="card-single">
+                    <div>
+                        <h3>2</h3>
+                        <span>Nuevas consultas</span>
+                    </div>
+                    <div>
+                        <span class="lab la-wpforms"></span>
+                    </div>
+                </div> -->
+            </div>
+            <!--Tabla-->
+            <div class="recent-grid">
+                <div class="projects">
+                    <div class="card card-distint">
+                        <div class="card-header">
+                            <h3>All Students</h3>
+                            <button type="button" @click="openModalUser(undefined, true)">Add Student</button>
+                            <select id="courseSelect" name="select" v-model="courseSelected">
+                                <option value="all">All Courses</option>
+                                <option v-for="course of selectCourse" :value="course">{{course}}</option>
+                            </select>
+
+                            <!-- <label for="imput">El imput</label>
+                            <input type="text" id="imput" name="" placeholder="No se que va"> -->
+                            <div class="search-wrapper">
+
+                                <input v-model="searchInput" id="searchInput" type="search" placeholder="Search here" />
+                            </div>
+                        </div>
+
+                        <div v-if="editUserModal.show" id="modal">
+                            <div class="modal-content">
+                                <span @click="closeModalUser">&times;</span>
+                                <form @submit.prevent="updateCourse">
+                                    <input type="text" v-model="editUserModal.firstName" placeholder="First Name">
+                                    <input type="text" v-model="editUserModal.lastName" placeholder="Last Name">
+                                    <input type="text" v-model="editUserModal.email" placeholder="Email">
+                                    <input type="text" v-model="editUserModal.password" placeholder="Password">
+                                    <button type="submit" @click="createUser">Create Course</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        {{filterData}}
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="studentsTable" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Student Id</th>
+                                            <th>Full name</th>
+                                            <th>Email</th>
+                                            <th>Active Student</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr v-for="student of data">
+                                            <td>{{student.studentId}}</td>
+                                            <td>{{student.name}}</td>
+                                            <td>{{student.email}}</td>
+                                            <td>{{student.activeStudent?"🟢":"🔴"}}</td>
+                                            <!-- <td><button class='edit-btn'> <box-icon name='edit' type='solid' color='#1f8fc3' ></box-icon> </button></td> -->
+                                            <td><button class='delete-btn' @click="deleteUser(student.studentId)"> <box-icon type='solid' name='trash' color='#1f8fc3' ></box-icon> </button></td>
+                                       </tr>
+                                    </tbody>
+                                </table>
+                                <img v-if="data.length == 0" src="https://http.cat/images/404.jpg" alt="404">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </main>
+    </div>
+</div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
