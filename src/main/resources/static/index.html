@@ -1,95 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Pannel</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="./img/logo_quinto_impacto.ico" type="image/x-icon">
-</head>
-<body>
-    <input type="checkbox" id="nav-toggle">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./img/logo_quinto_impacto.ico"
+      type="image/x-icon"
+    />
+  </head>
+  <body id="app">
+    <input type="checkbox" id="nav-toggle" />
     <div class="sidebar">
-        <div class="sidebar-brand">
-            <h1>Fifth Impact University</h1>
-        </div>
-        <!--Secciones-del-tablero-->
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="#" class="active"><span class="las la-home"></span>
-                    <span>Main Table</span></a>
-                </li>
-                <li>
-                    <a href="./courses.html"><span class="las la-stethoscope"></span>
-                    <span>Courses</span></a>
-                </li>
-                <li>
-                    <a href="./teachers.html"><span class="las la-user"></span>
-                    <span>Teachers</span></a>
-                </li>
-                <li>
-                    <a href="./students.html"><span class="las la-user-injured"></span>
-                    <span>Students</span></a>
-                </li>
-            </ul>
-        </div>
+      <div class="sidebar-brand">
+        <h1>Fifth Impact University</h1>
+      </div>
+      <!--Secciones-del-tablero-->
+      <div class="sidebar-menu">
+        <ul>
+          <li>
+            <a href="#" class="active"
+              ><span class="las la-home"></span> <span>Main Table</span></a
+            >
+          </li>
+          <li>
+            <a href="./courses.html"
+              ><span class="las la-stethoscope"></span> <span>Courses</span></a
+            >
+          </li>
+          <li>
+            <a href="./teachers.html"
+              ><span class="las la-user"></span> <span>Teachers</span></a
+            >
+          </li>
+          <li>
+            <a href="./students.html"
+              ><span class="las la-user-injured"></span><span>Students</span></a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="main-content">
-        <header>
-            <h2>
-                <label for="nav-toggle">
-                    <!-- <span class="las la-bars"></span> -->
-                </label> Admin Panel
-            </h2>
+      <header>
+        <h2>
+          <label for="nav-toggle">
+            <!-- <span class="las la-bars"></span> -->
+          </label>
+          Admin Panel
+        </h2>
 
-            <!-- <div class="search-wrapper">
+        <!-- <div class="search-wrapper">
                 
                 <input type="search" placeholder="Search here" />
             </div> -->
-            <div class="user-wrapper">
-                <img src="./img/logo_quinto_impacto.ico" width="40px" height="40px" alt="">
-                <div>
-                    <h4>Administrador</h4>
-                    <small>Super Admin</small>
-                </div>
+        <div class="user-wrapper">
+          <img
+            src="./img/logo_quinto_impacto.ico"
+            width="40px"
+            height="40px"
+            alt=""
+          />
+          <div>
+            <h4>Administrador</h4>
+            <small>Super Admin</small>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="cards">
+          <div class="card-single">
+            <div>
+              <h3 id="studentsCount"></h3>
+              <span>Total Students</span>
             </div>
-        </header>
+            <div>
+              <span class="las la-users"></span>
+            </div>
+          </div>
 
-        <main>
-            <div class="cards">
-                <div class="card-single">
-                    <div>
-                        <h3 id="studentsCount"></h3>
-                        <span>Total Students</span>
-                    </div>
-                    <div>
-                        <span class="las la-users"></span>
-                    </div>
-                </div>
+          <div class="card-single">
+            <div>
+              <h3 id="teachersCount"></h3>
+              <span>Total Teachers</span>
+            </div>
+            <div>
+              <span class="las la-stethoscope"></span>
+            </div>
+          </div>
 
-                <div class="card-single">
-                    <div>
-                        <h3 id="teachersCount"></h3>
-                        <span>Total Teachers</span>
-                    </div>
-                    <div>
-                        <span class="las la-stethoscope"></span>
-                    </div>
-                </div>
+          <div class="card-single">
+            <div>
+              <h3 id="coursesCount"></h3>
+              <span>Total Courses</span>
+            </div>
+            <div>
+              <span class="las la-wheelchair"></span>
+            </div>
+          </div>
 
-                <div class="card-single">
-                    <div>
-                        <h3 id="coursesCount"></h3>
-                        <span>Total Courses</span>
-                    </div>
-                    <div>
-                        <span class="las la-wheelchair"></span>
-                    </div>
-                </div>
-
-                <!-- <div class="card-single">
+          <!-- <div class="card-single">
                     <div>
                         <h3>2</h3>
                         <span>Nuevas consultas</span>
@@ -98,73 +112,81 @@
                         <span class="lab la-wpforms"></span>
                     </div>
                 </div> -->
-            </div>
-            <!--Tabla-->
-            <div class="recent-grid">
-                <div class="projects">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Recent Students & Teachers</h3>
+        </div>
+        <!--Tabla-->
+        <div class="recent-grid">
+          <div class="projects">
+            <div class="card">
+              <div class="card-header">
+                <h3>Recent Students & Teachers</h3>
 
-                            <button>Show all teachers <span class="las la-arrow-right">
-                            </span></button>
-                            <button>Show all students <span class="las la-arrow-right">
-                            </span></button>
-                        </div>
+                <button>
+                  Show all teachers <span class="las la-arrow-right"> </span>
+                  <a href="./teachers.html"></a>
+                </button>
+                <button>
+                  Show all students <span class="las la-arrow-right"> </span>
+                  <a href="./students.html"></a>
+                </button>
+              </div>
 
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="generalTable" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                            <td>Role</td>
-                                            <td>Have any course?</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                       
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table id="generalTable" width="100%">
+                    <thead>
+                      <tr>
+                        <td>Name</td>
+                        <td>Role</td>
+                        <td>Have any course?</td>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
                 </div>
-
-                <div class="customers">
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>New Courses</h3>
-
-                            <button>Go to Courses <span class="las la-arrow-right">
-                            </span></button>
-                        </div>
-
-                        <div class="card-body" id="new-courses">
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="avatars/1.png" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Ana Maria Acosta</h4>
-                                        <small>Diarrea</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="lab la-whatsapp"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-        </main>
+          </div>
+
+          <div class="customers">
+            <div class="card">
+              <div class="card-header">
+                <h3>New Courses</h3>
+
+                <button>
+                  Go to Courses <span class="las la-arrow-right"> </span>
+                </button>
+              </div>
+
+              <div class="card-body" id="new-courses">
+                <div class="customer">
+                  <div class="info">
+                    <img
+                      src="avatars/1.png"
+                      width="40px"
+                      height="40px"
+                      alt=""
+                    />
+                    <div>
+                      <h4>Ana Maria Acosta</h4>
+                      <small>Diarrea</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                    <span class="las la-user-circle"></span>
+                    <span class="lab la-whatsapp"></span>
+                    <span class="las la-phone"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/index.js"></script>
-</body>
+  </body>
 </html>

@@ -23,7 +23,7 @@ public class TeacherDTO {
         this.password = teacher.getPassword();
         this.activeTeacher = teacher.isActiveTeacher();
         this.courses = teacher.getCourses().stream().filter(TeacherCourse::isCourseWithTeacher).map(teacherCourse -> new TeacherCourseDTO(teacherCourse)).collect(Collectors.toSet());
-        this.hasAnyCourse = teacher.isHasAnyCourse();
+        this.hasAnyCourse = teacher.getCourses().size()>0;
     }
 
 }

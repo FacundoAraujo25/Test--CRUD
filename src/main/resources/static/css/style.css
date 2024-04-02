@@ -281,17 +281,36 @@ tr td:last-child {
     left: 35;
     top: 35;
     width: 50%;
-    height: 50%;
+    height: 30%;
     overflow: auto;
     background-color: #1F8FC3;
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 3% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    height: 30%;
+}
+
+.modal-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.modal-form input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .close {
@@ -324,6 +343,7 @@ tr td:last-child {
 .table-responsive {
     width: 100%;
     overflow-x: auto;
+    text-align: center;
 }
 
 .customer {
